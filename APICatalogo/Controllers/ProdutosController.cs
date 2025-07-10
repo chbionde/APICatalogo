@@ -19,7 +19,7 @@ namespace APICatalogo.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Produto>> Get()
         {
-            var produtos = _context.Produtos.AsNoTracking().ToList();
+            var produtos = _context.Produtos.Take(100).AsNoTracking().ToList();
             if (produtos is null)
             {
                 return NotFound();
@@ -30,7 +30,7 @@ namespace APICatalogo.Controllers
         [HttpGet("{id:int}")]
         public ActionResult<Produto> Get(int id)
         {
-            var produto = _context.Produtos.AsNoTracking().FirstOrDefault(p => p.ProdutoID == id);
+            var produto = _context.Produtos.Take(100).AsNoTracking().FirstOrDefault(p => p.ProdutoID == id);
             if (produto is null)
             {
                 return NotFound();
