@@ -8,7 +8,7 @@ namespace APICatalogo.Models;
 public class Produto
 {
     [Key]
-    public int ProdutoId { get; set; }
+    public int ProdutoID { get; set; }
 
     [Required]
     [StringLength(80)]
@@ -17,16 +17,18 @@ public class Produto
     [Required]
     [StringLength(300)]
     public string? Descricao { get; set; }
+
     [Required]
-    [Column(TypeName ="decimal(10,2)")]
+    [Column(TypeName = "decimal(10,2)")]
     public decimal Preco { get; set; }
 
     [Required]
     [StringLength(300)]
     public string? ImagemUrl { get; set; }
     public float Estoque { get; set; }
-    public DateTime DataCadastro { get; set; }
-    public int CategoriaId { get; set; }
+    public DateTime DataCriacao { get; set; }
+    public int CategoriaID { get; set; }
+
     [JsonIgnore]
     public Categoria? Categoria { get; set; }
 }
